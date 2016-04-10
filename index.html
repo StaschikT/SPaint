@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <script type="text/javascript" src="jquery.js"></script>
+  <style>
+  #df{
+    display: flex;
+  }
+  #buttons{
+    text-align: center;
+    width: 80%;
+  }
+  </style>
+  <title>SimplePaint</title>
+</head>
+<body>
+  <div id = "mainbox">
+<h1 id = "appName">
+</h1>
+<img src="Brush001.png" id="brush" width="10px" height="10px" alt="the brush" style="display: hidden;">
+<img src="Brush002.png" id="brush2" width="10px" height="10px" alt="the brush" style="display: hidden;">
+<img src="Brush003.png" id="brush3" width="10px" height="10px" alt="the brush" style="display: hidden;">
+<img src="Brush004.png" id="brush4" width="10px" height="10px" alt="the brush" style="display: hidden;">
+<img src="Brush005.png" id="brush5" width="10px" height="10px" alt="the brush" style="display: hidden;">
+<img src="Brush006.png" id="brush6" width="10px" height="10px" alt="the brush" style="display: hidden;">
+<canvas id = "canvas1" width = "1000" height="350">
+</canvas>
+<div id="df">
+<div id="buttons">
+<button onclick = "moveup()"><h1><img src='http://www.clker.com/cliparts/8/7/Y/H/W/e/up-arrow-circle-hi.png' alt='' width='50px' height='50px'></h1></button><br>
+<button onclick="moveleft()"> <h1><img src='http://www.clker.com/cliparts/2/e/d/5/11949941595979130521leftarrow.svg.med.png' alt='' width='50px' height='50px'></h1></button>
+<button onclick="moveright()"> <h1><img src='http://www.clker.com/cliparts/3/6/c/b/11949941671787360471rightarrow.svg.med.png' alt='' width='50px' height='50px'></h1></button><br>
+<button onclick="movedown()"> <h1><img src='http://www.clker.com/cliparts/y/m/X/o/s/R/down-arrow-circle-hi.png' alt='' width='50px' height='50px'></h1></button></div>
+<button onclick="changeColor()"> <h1> Change the brush type(and color)(toggle)</h1> </button>
+</div>
+<!--button onclick="changeSize()"> <h1> Change the brush size</h1> </button-->
+<script>
+var c = document.querySelector("#canvas1");
+var ctx = c.getContext("2d");
+var img=document.getElementById("brush");
+var color = '';
+var ccount = 0;
+ctx.fillStyle = color;
+ctx.fillRect(0, 0, 50, 50);
+var x = 0;
+var y = 0;
+var pxl = 10;
+var square = function(){
+  // ctx.fillStyle = color;
+  // ctx.fillRect(x, y,  pxl, pxl);
+  ctx.drawImage(img, x, y);
+}
+var moveup = function(){
+  y = y - 10;
+  square();
+}
+var movedown = function(){
+  y = y + 10;
+  square();
+}
+var moveleft = function(){
+  x = x - 10;
+  square();
+}
+var moveright = function(){
+  x = x + 10;
+  square();
+}
+
+var changeColor = function(){
+  ccount = ccount + 1;
+  if(ccount === 1){
+    img=document.getElementById("brush");
+  }
+  else if (ccount === 2) {
+    img=document.getElementById("brush2");
+  }
+  else if (ccount === 3) {
+    img=document.getElementById("brush3");
+  }
+  else if (ccount === 4) {
+    img=document.getElementById("brush4");
+  }
+  else if (ccount === 5) {
+    img=document.getElementById("brush5");
+    //ccount = 0;
+  }
+  else if (ccount > 5) {
+    img=document.getElementById("brush6");
+    ccount = 0;
+  }
+
+}
+var changeSize = function(){
+  pxl = plx + 10;
+  if(plx > 300){
+    plx = 10;
+  }
+}
+
+
+</script>
+
+
+
+  </div>
+</body>
+</html>
