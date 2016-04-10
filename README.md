@@ -1,2 +1,2 @@
-# Simple-Paint
-A highly customizable drawing/image-editing app, written in Javascript!
+# SPaint
+SPaint is a highly customizable painting/image editing app written in Javascript, built using Electron. To build just follow the instaructions on the Electron re-distribution guide.
